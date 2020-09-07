@@ -90,11 +90,11 @@ exports.likeSauce = (req, res, next) => {
                 const isLiked = sauce.usersLiked.indexOf(req.body.userId);
                 const isDisliked = sauce.usersDisliked.indexOf(req.body.userId);
                 if (isLiked != -1){
-                    sauce.usersLiked.splice(isLiked, 1);
+                    sauce.usersLiked.splice(isLiked, 1); 
                     Sauce.updateOne({ _id: req.params.id }, {
                         sauce,
                         usersLiked: sauce.usersLiked,
-                        likes: sauce.usersLiked.length
+                        likes: sauce.usersLiked.length 
                     })
                     .then(() => res.status(200).json({ message: 'Vous avez enlevé votre like !'}))
                     .catch(error => res.status(400).json({error}));
